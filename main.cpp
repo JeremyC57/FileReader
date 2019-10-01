@@ -14,15 +14,15 @@ int main()
   getline(cin, fileName);
   
   //STEP 1: open the fileStream for input, using the fileName specified
-  fileStream.open(fileName , fstream::in);  
+  fileStream.open(fileName.c_str() ,fstream::in);  
   if( fileStream.good() )
   {
     cout<<fileName<<" opened.\nFILE CONTENTS:\n";
     
     //STEP 3: repeat the following until the end-of-file (eof) has been reached...
-    while(getline(fileStream, line))
+    while(!fileStream.eof())
     {
-         
+         getline(fileStream, line);
          cout<<line<<endl;
     }
     // 3A: read a line from fileStream into the variable line
