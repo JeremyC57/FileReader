@@ -9,10 +9,15 @@ int main()
   string fileName; //to get the name of the file to open
   string line; //to store a single line of a text file
   fstream fileStream; //to open a file for reading
-  int lineNum = 0; //to store number of lines
-  int charNum = 0; //to store number of characters
+  int lineNum; //to store number of lines
+  int charNum; //to store number of characters
+  char yesNo;
 
 
+  do
+  {
+  lineNum = 0;
+  charNum = 0;
 
   cout<<"What file do you want to open? ";
   getline(cin, fileName);
@@ -53,6 +58,10 @@ int main()
         cout<<"METADATA" << endl <<"File: "<< fileName << endl << "Lines: " << lineNum << endl << "Characters: " << charNum << endl;
 
   }
+  cout << "Analyze another file (y/n)? ";
+  cin >> yesNo;
+  cin.ignore();
+  }while( tolower(yesNo) == 'y');
 
   return 0;
 }
